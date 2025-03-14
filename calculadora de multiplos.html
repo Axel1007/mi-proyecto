@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Múltiplos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calculator input, .calculator button {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculadora de Múltiplos</h2>
+        <input type="number" id="numero" placeholder="Ingresa un número">
+        <input type="number" id="multiplo" placeholder="Ingresa el múltiplo">
+        <button onclick="calcularMultiplos()">Calcular</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularMultiplos() {
+            const numero = parseInt(document.getElementById('numero').value);
+            const multiplo = parseInt(document.getElementById('multiplo').value);
+            let resultado = '';
+
+            if (isNaN(numero) || isNaN(multiplo)) {
+                resultado = 'Por favor, ingresa números válidos.';
+            } else {
+                resultado = `Los múltiplos de ${numero} hasta ${multiplo * 10} son: `;
+                for (let i = 1; i <= 10; i++) {
+                    resultado += (numero * i) + ' ';
+                }
+            }
+
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+</html>
